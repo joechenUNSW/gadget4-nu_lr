@@ -1,0 +1,11 @@
+prefix=/home/z5019940/gadget4-master/extlibs
+exec_prefix=/home/z5019940/gadget4-master/extlibs
+libdir=/home/z5019940/gadget4-master/extlibs/lib
+includedir=/home/z5019940/gadget4-master/extlibs/include
+GSL_CBLAS_LIB=-lgslcblas
+
+Name: GSL
+Description: GNU Scientific Library
+Version: 1.16
+Libs: -L/home/z5019940/gadget4-master/extlibs/lib -lgsl ${GSL_CBLAS_LIB} -lm -lm 
+Cflags: -I/home/z5019940/gadget4-master/extlibs/include
