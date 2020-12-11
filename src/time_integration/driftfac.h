@@ -39,8 +39,9 @@ class driftfac
 
   static double hubble_function(double a)
   {
-    if(All.OmegaNu == 0) {
-      double hubble_a = All.Omega0 / (a * a * a) + (1 - All.Omega0 - All.OmegaLambda) / (a * a) + All.OmegaLambda;
+    if(All.NLR == 0) {
+      double de_coeff = exp( 3.*(1.+All.w0+All.wa+All.wb) * log(1./a) - 3.*(All.wa+2.*All.wb)*(1.-a) + 1.5*All.wb*(1.-pow(a, 2)) );
+      double hubble_a = All.Omega0 / (a * a * a) + (1 - All.Omega0 - All.OmegaLambda) / (a * a) + All.OmegaLambda * de_coeff;
       hubble_a = All.Hubble * sqrt(hubble_a);
       
       return hubble_a;
