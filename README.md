@@ -1,9 +1,14 @@
 
 
-GADGET-4
+GADGET-4 Multi-Fluid Neutrino Linear Response Version
 ========
 
 ![](documentation/img/top.jpg)
+
+This is a modified version of Volker Springel's GADGET-4 code. 
+The addition of a neutrino linear response module allows the user to
+incorporate massive neutrinos via the Multi-Fluid method outlined in
+arXiv:2011.12503. 
 
 GADGET-4 is a massively parallel code for N-body/hydrodynamical
 cosmological simulations. It is a flexible code that can be applied to
