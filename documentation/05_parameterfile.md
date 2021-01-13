@@ -337,7 +337,7 @@ at `z=0`.  Relevant only for comoving integration.
 **OmegaNu**  0.0
 
 Cosmological massive neutrino density parameter in units of the critical
-density at 'z=0'. A non-zero NLR parameter must be chosen if this is 
+density at 'z=0'. NLR parameter must be set to 1 if this is 
 set to non-zero values.
 
 ------
@@ -380,9 +380,8 @@ rate equations in radiative cooling physics.
 
 **NLR** 0
 
-A switch for choosing neutrino linear response method if required. The
-SuperEasy neutrino linear response method (arXiv: 2011.12504) is used for NLR=1. The Multi-
-fluid neutrino linear response method (arXiv: 2011.12503) is used for NLR=2. No massive 
+A switch for turning on the neutrino linear response method if required. The
+The Multi-fluid neutrino linear response method (arXiv: 2011.12503) is used for NLR=1. No massive 
 neutrinos are considered for NLR=0. If massive neutrinos are included,
 the initial condition can only be done up to ZA, the 2LPT option in the
 config.sh file must be commented out.

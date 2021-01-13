@@ -1882,7 +1882,7 @@ void pm_periodic::pmforce_periodic(int mode, int *typelist)
   }
   pmforce_measure_powerspec_inline(0, typelist, k_nuGadget, power_nuGadget);
 
-if (All.NLR == 2) {
+if (All.NLR == 1) {
   double delta_nu_container[PMGRID];
   /* Initialise the linear neutrino code, only once at the beginning of the simulations */
   int N_EQ_pm = Nulinear.N_EQ_parser();
@@ -2134,7 +2134,7 @@ if (All.NLR == 2) {
           if(k2 > 0)
             {
               int bin_index_pm;
-              if(All.NLR == 2) {
+              if(All.NLR == 1) {
                 bin_index_pm = floor(binsperunit*log(sqrt(k2)*All.BoxSize/(2.*M_PI)));
                 assert(bin_index_pm < PMGRID);
               }
@@ -2164,15 +2164,10 @@ if (All.NLR == 2) {
               double ff = 1 / (fx * fy * fz);
               deconv    = ff * ff * ff * ff;
 
-              if(All.NLR == 2) { // multi-fluid neutrino linear response
+              if(All.NLR == 1) { // multi-fluid neutrino linear response
                 smth *= phi_adj_fac[bin_index_pm];
               }
               
-              if(All.NLR == 1) { // SuperEasy neutrino linear response
-                double ser_mod_fac = Nulinear.poisson_mod_fac(sqrt(k2), All.Time);
-                smth *= ser_mod_fac; 
-              }
-
               smth *= deconv; /* deconvolution */
             }
 
