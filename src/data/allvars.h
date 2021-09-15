@@ -142,7 +142,7 @@ struct global_data_all_processes : public parameters
   double HubbleParam; /**< little `h', i.e. can be used to scale unit system to absorb uncertain value of Hubble constant.  Only needed
                        * to get absolute physical values for cooling physics
                        */
-  int NLR;            /**< switch for neutrino linear response methods, 0 for no neutrinos, 1 for SuperEasy, 2 for MultiFluid */
+  int NLR;            /**< switch for neutrino linear response methods, 0 for no neutrinos, 1 for MultiFluid */
 
   double BoxSize; /**< Boxsize in case periodic boundary conditions are used */
 
