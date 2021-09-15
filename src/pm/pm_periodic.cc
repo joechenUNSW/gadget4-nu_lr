@@ -1906,9 +1906,9 @@ if (All.NLR == 1) {
       }
     }
 
-    MPI_Barrier(MPI_COMM_WORLD);
+    MPI_Barrier(Communicator);
     printf("NEUTRINOS: process %d has %d k modes to do\n", ThisTask, local_n_k);
-    MPI_Barrier(MPI_COMM_WORLD);
+    MPI_Barrier(Communicator);
 
     // for every momentum value, the neutrino perturbations are initialised and stored first in the temporary array, then its copied into the larger permanent y_nu array
 
@@ -1935,7 +1935,7 @@ if (All.NLR == 1) {
         }
       }
     }
-    MPI_Barrier(MPI_COMM_WORLD);
+    MPI_Barrier(Communicator);
 
     // the global array is not complete. Each process only populated their own local part of y_nu. Now we collect all the patches
     for(int i=0; i<NTask-1; i++) {
@@ -1947,7 +1947,7 @@ if (All.NLR == 1) {
           send_buf[j] = Nulinear.y_nu[i*buf_size + j];
       }
 
-      MPI_Bcast(send_buf, buf_size, MPI_DOUBLE, i, MPI_COMM_WORLD);
+      MPI_Bcast(send_buf, buf_size, MPI_DOUBLE, i, Communicator);
 
       if(ThisTask != i) {
         for(int j=0; j<buf_size; j++)
@@ -1965,7 +1965,7 @@ if (All.NLR == 1) {
       }
     }
 
-    MPI_Bcast(last_buf, last_buf_size, MPI_DOUBLE, NTask-1, MPI_COMM_WORLD);
+    MPI_Bcast(last_buf, last_buf_size, MPI_DOUBLE, NTask-1, Communicator);
 
     if(ThisTask != NTask-1) {
       for(int j=0; j<last_buf_size; j++) {
@@ -1973,7 +1973,7 @@ if (All.NLR == 1) {
       }
     }
 
-    MPI_Barrier(MPI_COMM_WORLD);
+    MPI_Barrier(Communicator);
 
 /*
     for(int bin_index=0; bin_index<PMGRID; bin_index++) {
